@@ -6,7 +6,6 @@ package com.shenawynkov.criticaltest.di
 
 
 
-import ae.digitalwise.ecommerce.RepoModule
 import com.shenawynkov.criticaltest.App
 import com.shenawynkov.criticaltest.ui.HomeActivity
 import com.shenawynkov.criticaltest.ui.article.ArticleActivity

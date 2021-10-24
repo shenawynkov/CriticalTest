@@ -3,11 +3,11 @@ package com.shenawynkov.criticaltest
 
 
 
-import ae.digitalwise.ecommerce.RepoModule
 import android.app.Application
 
 import com.shenawynkov.criticaltest.di.ApplicationComponent
 import com.shenawynkov.criticaltest.di.DaggerApplicationComponent
+import com.shenawynkov.criticaltest.di.RepoModule
 import java.util.*
 
 

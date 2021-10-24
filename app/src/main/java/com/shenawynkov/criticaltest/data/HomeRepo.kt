@@ -12,28 +12,29 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 
 class HomeRepo(val apiService: ApiService) : BaseRepo(apiService) {
-    val pageSize = 10;
+    val pageSize = 10
 
 
     suspend fun getHeadlines(
         source:String,
-         articles:MutableLiveData<ArrayList<Article>>,page:Int,
+        page:Int,
         dispatcher: CoroutineDispatcher = Dispatchers.IO
-    ) {
+    ) :  List<Article>{
         val response = safeApiCall(dispatcher) {
             apiService.get_Headlines(
                 source, BuildConfig.api_key,page,pageSize
 
             )
         }
-        handleRegisterError(response, message, status);
+        handleRegisterError(response, message, status)
         if (response is ResultWrapper.Success) {
             status.value = response.value.status
-            articles.value?.addAll(response.value.articles)
-            articles.value=articles.value
 
+           return response.value.articles
 
         }
+
+        return ArrayList()
     }
 
 }

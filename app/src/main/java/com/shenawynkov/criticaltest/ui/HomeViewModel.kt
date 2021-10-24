@@ -6,16 +6,17 @@ import com.shenawynkov.criticaltest.data.HomeRepo
 import com.shenawynkov.criticaltest.data.home.Article
 import kotlinx.coroutines.launch
 
-class HomeViewModel (val homeRepo: HomeRepo) :BaseViewModel(homeRepo){
-    val articles=MutableLiveData<ArrayList<Article>>(ArrayList())
-    val  source=MutableLiveData<String>("bbc-news")
-    var auth=false
+class HomeViewModel(val homeRepo: HomeRepo) : BaseViewModel(homeRepo) {
+    val articles = MutableLiveData<ArrayList<Article>>(ArrayList())
+    val source = MutableLiveData<String>("bbc-news")
+    var auth = false
 
 
-    fun loadArticles(page:Int)
-    {
+    fun loadArticles(page: Int) {
         launch {
-            homeRepo.getHeadlines(source.value!!,articles,page)
+            val newArticles = homeRepo.getHeadlines(source.value!!, page)
+            articles.value?.addAll(newArticles)
+            articles.value = articles.value
         }
     }
 }

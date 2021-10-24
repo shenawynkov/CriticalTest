@@ -2,5 +2,5 @@
 <resources>
     <string name="app_name">CriticalTest ABC</string>
 
-    <string name="source">abc</string>
+    <string name="source">abc-news</string>
 </resources>

@@ -47,13 +47,13 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>() {
         super.onCreate(savedInstanceState)
         //auth
         val biometricManager = BiometricManager.from(this)
-        if (biometricManager.canAuthenticate(BIOMETRIC_WEAK) == BiometricManager.BIOMETRIC_SUCCESS&&!viewModel.auth) {
+        if (biometricManager.canAuthenticate(BIOMETRIC_WEAK) == BiometricManager.BIOMETRIC_SUCCESS && !viewModel.auth) {
             authenticate()
-            viewModel.auth=true
+            viewModel.auth = true
         }
 
         //viewmodel
-        viewModel.source.value=getString(R.string.source)
+        viewModel.source.value = getString(R.string.source)
         binding.viewmodel = viewModel
         //init
         observeArticles()
@@ -90,7 +90,7 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>() {
 
     @SuppressLint("NotifyDataSetChanged")
     fun observeArticles() {
-        viewModel.articles.observeIfNotNull(this, Observer {
+        viewModel.articles.observeIfNotNull(this,  {
             articleAdapter.list = it
             articleAdapter.notifyDataSetChanged()
         })

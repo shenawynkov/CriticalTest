@@ -1,5 +1,5 @@
 
-package ae.digitalwise.ecommerce
+package com.shenawynkov.criticaltest.di
 
 
 import android.content.Context
